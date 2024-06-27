@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="/frontend/css/Rec_contra.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recuperar Contraseña</h1>
+        <form id="forgotPasswordForm" onsubmit="return sendRecoveryEmail()">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message"></span>
+            
+            <button type="submit">Enviar Correo de Recuperación</button>
+        </form>
+    </div>
+    <script>
+        async function sendRecoveryEmail() {
+            const email = document.getElementById('email').value;
+            
+            const response = await fetch('/forgot-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            });
+            
+            if (response.ok) {
+                alert('Correo de recuperación enviado');
+            } else {
+                alert('Error al enviar el correo de recuperación');
+            }
+            
+            return false;
+        }
+    </script>
+</body>
+</html>

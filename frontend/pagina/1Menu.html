@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/frontend/css/1Menu.css">
+    <link rel="icon" href="/frontend/img/LogoDeportiño.jpg">
+    <script src="/frontend/Javascript/Index.js" async></script>
+    <title>Menu | </title>
+</head>
+<body>
+    <header>
+        <h1>Menu</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li class="left"><a href="/frontend/pagina/1Menu.html">Inicio</a></li>
+            <li><a href="/frontend/pagina/2camisetas.html">Camisetas</a></li>
+            <li><a href="/frontend/pagina/3zapatillas.html">Zapatillas</a></li>
+            <li><a href="/frontend/pagina/api_Ligas.html">Liga</a></li>
+            <li class="right"><a href="/frontend/pagina/Index.html">Inicio de sesion</a></li>
+        </ul>
+      </nav>
+
+    <center><h2>Lo mas vendido</h2></center>
+
+    <section class="contenedor">
+        <!-- Contenedor de elementos -->
+
+        <div class="contenedor-items">
+            <div class="item">
+                <span class="titulo-item">Camiseta de francia</span>
+                <img src="/frontend/img_camisas/cam-fra.png" alt="" class="img-item">
+                <span class="precio-item">$54.000</span>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Zapatilla blanquinegra</span>
+                <img src="/frontend/img_zapatillas/zapatilla_nike4.jpg" alt="" class="img-item">
+                <span class="precio-item">$40.000</span>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Camiseta de Brasil
+                </span>
+                <img src="/frontend/img_camisas/cam-bra.png" alt="" class="img-item">
+                <span class="precio-item">$50.000</span>
+            </div>
+        </div>
+        </div>
+    </section>
+<br>
+    <center><h1>Aqui tienes los resultados de los partidos hasta hoy </h1></center>
+<br>
+
+    <div
+        id="wg-api-football-fixtures"
+        data-host="v3.football.api-sports.io"
+        data-refresh="60"
+        data-date="2024-05-12"
+        data-key="4c51386f9d89262f6a7907bb9340a3b8"
+        data-theme=""
+        data-show-errors="false"
+        class="api_football_loader">
+    </div>
+    <script type="module" src="https://widgets.api-sports.io/football/1.1.8/widget.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var today = new Date();
+            var formattedDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            console.log(formattedDate);
+            $('#wg-api-football-fixtures').attr('data-date', formattedDate);
+        });
+    </script>
+</body>
+</html>
